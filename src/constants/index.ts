@@ -6,7 +6,7 @@ export const MENU_ITEMS = [
   {
     key: clientRoutes.teams,
     icon: createElement(TeamOutlined),
-    label: "Команды"
+    label: "Главная страница"
   },
   {
     key: clientRoutes.timetable,

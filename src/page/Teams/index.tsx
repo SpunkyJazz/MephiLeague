@@ -5,6 +5,7 @@ import barabella2 from "src/assets/barabellaPhoto2.png";
 import barabella from "src/assets/barabella.png";
 import goats from "src/assets/goats.png";
 import goats1 from "src/assets/goatsPhoto1.png";
+import goats2 from "src/assets/goatsPhoto2.png";
 import kvant from "src/assets/kvant.png";
 import mifkar from "src/assets/mifkar.png";
 import mifkar1 from "src/assets/mifkarPhoto1.png";
@@ -104,7 +105,8 @@ export const TeamsPage = (): JSX.Element => {
       ],
       logo: barabella,
       img1: barabella1,
-      img2: barabella2
+      img2: barabella2,
+      VKgroup: "https://m.vk.com/bara_bella?from=groups"
     },
     {
       name: "Goats",
@@ -126,7 +128,8 @@ export const TeamsPage = (): JSX.Element => {
       ],
       logo: goats,
       img1: goats1,
-      img2: null
+      img2: goats2,
+      VKgroup: "https://m.vk.com/club216222327"
     },
     {
       name: "Мияухихи",
@@ -142,8 +145,9 @@ export const TeamsPage = (): JSX.Element => {
         "Нурматов Улугбек Уренбоевич"
       ],
       logo: miy,
-      img1: null,
-      img2: null
+      img1: barabella1,
+      img2: barabella1,
+      VKgroup: "https://m.vk.com/bara_bella?from=groups"
     },
     {
       name: "Serpent",
@@ -162,8 +166,9 @@ export const TeamsPage = (): JSX.Element => {
         "Илюхин Максим Владимирович"
       ],
       logo: serpent,
-      img1: null,
-      img2: null
+      img1: barabella1,
+      img2: barabella1,
+      VKgroup: "https://m.vk.com/bara_bella?from=groups"
     },
     {
       name: "Квант",
@@ -179,8 +184,9 @@ export const TeamsPage = (): JSX.Element => {
         "Байков Кирилл Александрович"
       ],
       logo: kvant,
-      img1: null,
-      img2: null
+      img1: barabella1,
+      img2: barabella1,
+      VKgroup: "https://m.vk.com/bara_bella?from=groups"
     },
     {
       name: "Стерео",
@@ -199,8 +205,9 @@ export const TeamsPage = (): JSX.Element => {
         "Базагота Левис Кевин"
       ],
       logo: stereo,
-      img1: null,
-      img2: null
+      img1: barabella1,
+      img2: barabella1,
+      VKgroup: "https://m.vk.com/bara_bella?from=groups"
     },
     {
       name: "Mifkar",
@@ -221,7 +228,8 @@ export const TeamsPage = (): JSX.Element => {
       ],
       logo: mifkar,
       img1: mifkar1,
-      img2: mifkar2
+      img2: mifkar2,
+      VKgroup: "https://m.vk.com/mfcmifkar"
     },
     {
       name: "Tokos",
@@ -236,8 +244,9 @@ export const TeamsPage = (): JSX.Element => {
         "Каролус Рой"
       ],
       logo: tokos,
-      img1: null,
-      img2: null
+      img1: barabella1,
+      img2: barabella1,
+      VKgroup: "https://m.vk.com/bara_bella?from=groups"
     }
   ];
 
@@ -254,7 +263,7 @@ export const TeamsPage = (): JSX.Element => {
   ) : (
     <Row gutter={[30, 30]}>
       <TableCol span={12}>
-        <Card title="Сыгранные матчи" style={{ width: 600 }}>
+        <Card title="Сыгранные матчи" style={{ width: 700, textAlign: "center" }}>
           <Table
             columns={columns}
             dataSource={playedGamesData}
@@ -265,7 +274,7 @@ export const TeamsPage = (): JSX.Element => {
         </Card>
       </TableCol>
       <TableCol span={12}>
-        <Card title="Предстоящие матчи" style={{ width: 600 }}>
+        <Card title="Предстоящие матчи" style={{ width: 700, textAlign: "center" }}>
           <Table
             columns={columns}
             dataSource={expectedGamesData}
