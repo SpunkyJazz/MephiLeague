@@ -4,6 +4,8 @@ import ru_RU from "antd/lib/locale/ru_RU";
 import { createStore, StoreContext } from "./stores";
 import { Page } from "./page";
 import { THEME } from "./styles/theme";
+import { ParallaxProvider } from "react-scroll-parallax"
+import React from "react";
 
 export const App = (): JSX.Element => {
   const stores = createStore();
@@ -12,7 +14,11 @@ export const App = (): JSX.Element => {
     <BrowserRouter>
       <ConfigProvider locale={ru_RU} theme={THEME}>
         <StoreContext.Provider value={stores}>
-          <Page />
+          <ParallaxProvider scrollAxis="horizontal">
+            <React.StrictMode>  
+              <Page />
+            </React.StrictMode> 
+          </ParallaxProvider>
         </StoreContext.Provider>
       </ConfigProvider>
     </BrowserRouter>

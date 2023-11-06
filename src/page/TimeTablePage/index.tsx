@@ -1,4 +1,4 @@
-import { Card, Table } from "antd";
+import { Table, Tabs } from "antd";
 
 export const TimeTablePage = (): JSX.Element => {
 
@@ -23,25 +23,30 @@ export const TimeTablePage = (): JSX.Element => {
    const dataSource = [
       {}
    ];
+
+   const onChange = (key: string) => {
+      console.log(key);
+   };
    
    return (
       <>
-         <Card title="Расписание матчей" style={{ textAlign: "center" }}/>
-         <Card title="1 тур" style={{ textAlign: "center" }}/>
-         <Table
-            columns={columns}
-            dataSource={dataSource}
-            size="small"
-            pagination={false}
-            bordered
-         />
-         <Card title="2 тур" style={{ textAlign: "center" }}/>
-         <Table
-            columns={columns}
-            dataSource={dataSource}
-            size="small"
-            pagination={false}
-            bordered
+         <Tabs
+            onChange={onChange}
+            type="card"
+            items={new Array(8).fill(null).map((_, i) => {
+               const id = String(i + 1);
+               return {
+               label: `${id} тур`,
+               key: id,
+               children: <Table
+                           columns={columns}
+                           dataSource={dataSource}
+                           size="small"
+                           pagination={false}
+                           bordered
+                        />,
+               };
+            })}
          />
       </>
    )

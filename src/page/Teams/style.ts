@@ -1,8 +1,6 @@
 import { Col, Table, Typography } from "antd";
 import styled from "styled-components";
 
-const { Title } = Typography;
-
 export const TableCol = styled(Col)`
   display: flex;
   flex-direction: column;

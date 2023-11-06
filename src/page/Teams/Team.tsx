@@ -5,8 +5,8 @@ import {
   Space,
   Table,
   Typography,
-  Carousel,
-  Col
+  Col,
+  Carousel
 } from "antd";
 import { TSelectedTeam } from "./types";
 import { CSSProperties } from "react";
@@ -63,14 +63,14 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
           <Title level={1}>{data?.name}</Title>
           <Space>
             <Button href={data?.VKgroup} target="_blank">
-              VK
+              _VK_
             </Button>
           </Space>
         </Row>
         <img
-          style={{ justifyContent: "center" }}
+          style={{ display: "block", margin: "0 auto"}}
           src={data?.logo}
-          width={300}
+          width={250}
           data-proportion-h="1"
         />
         <Carousel

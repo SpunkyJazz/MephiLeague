@@ -25,7 +25,6 @@ export const TeamsPage = (): JSX.Element => {
   const [selectedTeam, setSelectedTeam] = useState<TSelectedTeam | undefined>();
 
   const Boop = ({
-    rotation,
     scale,
     timing,
     children
@@ -33,10 +32,8 @@ export const TeamsPage = (): JSX.Element => {
     const [isBooped, setIsBooped] = useState(false);
     const style = {
       transform: isBooped
-        ? `rotate(${rotation}deg)
-      scale(${scale})`
-        : `rotate(0deg)
-      scale(1)`,
+        ? `scale(${scale})`
+        : `scale(1)`,
       transition: `transform ${timing}ms`
     };
     const trigger = () => {
@@ -268,7 +265,7 @@ export const TeamsPage = (): JSX.Element => {
             columns={columns}
             dataSource={playedGamesData}
             size="small"
-            pagination={false}
+            // pagination={false}
             bordered
           />
         </Card>
@@ -279,17 +276,17 @@ export const TeamsPage = (): JSX.Element => {
             columns={columns}
             dataSource={expectedGamesData}
             size="small"
-            pagination={false}
+            // pagination={false}
             bordered
           />
         </Card>
       </TableCol>
       {teams.map((t) => (
         <TeamCol span={6} onClick={() => handleSelectTeam(t)}>
-          <Boop rotation={360} scale={1.2} timing={800}>
+          <Boop scale={1.25} timing={200}>
             <img src={t.logo} width={230} data-proportion-h="1" />
+            <Title style={{textAlign: "center"}} level={3}>{t.name}</Title>
           </Boop>
-          <Title level={3}>{t.name}</Title>
         </TeamCol>
       ))}
     </Row>

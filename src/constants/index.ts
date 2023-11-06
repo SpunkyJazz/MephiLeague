@@ -16,7 +16,7 @@ export const MENU_ITEMS = [
   {
     key: clientRoutes.standings,
     icon: createElement(TableOutlined),
-    label: "Турнирные таблицы"
+    label: "Турнирная таблица"
   },
   {
     key: clientRoutes.statics,

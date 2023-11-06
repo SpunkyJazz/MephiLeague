@@ -8,7 +8,6 @@ export type TSelectedTeam = {
 };
 
 export interface IBoopProps {
-  rotation: number;
   scale: number;
   timing: number;
 }
