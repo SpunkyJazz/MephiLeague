@@ -10,6 +10,7 @@ import {
 } from "antd";
 import { TSelectedTeam } from "./types";
 import { CSSProperties } from "react";
+import VK from "src/assets/iconVK.png"
 
 type TProps = {
   data: TSelectedTeam | undefined;
@@ -63,7 +64,7 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
           <Title level={1}>{data?.name}</Title>
           <Space>
             <Button href={data?.VKgroup} target="_blank">
-              _VK_
+              <img src="src/assets/iconVK.png" alt="VK" />
             </Button>
           </Space>
         </Row>
