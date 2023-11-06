@@ -11,3 +11,8 @@ export interface IBoopProps {
   scale: number;
   timing: number;
 }
+
+export type TProps = {
+  data: TSelectedTeam | undefined;
+  unselectTeam: () => void;
+};

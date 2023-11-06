@@ -4,7 +4,7 @@ import { TableCol, TeamCol } from "./style";
 import { TSelectedTeam } from "./types";
 import { IBoopProps } from "./types";
 import { Team } from "./Team";
-import { TEAMS } from "src/mock";
+import { EXPECTED_GAMES_DATA, PLAYED_GAMES_DATA, TEAMS } from "src/mock";
 
 export const TeamsPage = (): JSX.Element => {
   const { Title } = Typography;
@@ -49,22 +49,6 @@ export const TeamsPage = (): JSX.Element => {
     }
   ];
 
-  const playedGamesData = [
-    { date: "01.01", teams: "Арсенал - Ман Сити", score: "10:0" },
-    { date: "02.01", teams: "Реал - Барселона", score: "1:2" },
-    { date: "03.01", teams: "Ливерпуль - Ман Юнайтед", score: "5:0" },
-    { date: "04.01", teams: "Челси - Бормут", score: "0:7" },
-    { date: "05.01", teams: "Зенит - ЦСКА", score: "1:4" }
-  ];
-
-  const expectedGamesData = [
-    { date: null, teams: "Арсенал - Ман Сити", score: "vs" },
-    { date: null, teams: "Реал - Барселона", score: "vs" },
-    { date: null, teams: "Ливерпуль - Ман Юнайтед", score: "vs" },
-    { date: null, teams: "Челси - Бормут", score: "vs" },
-    { date: null, teams: "Зенит - ЦСКА", score: "vs" }
-  ];
-
   const handleSelectTeam = (data: TSelectedTeam): void => {
     setSelectedTeam(data);
   };
@@ -83,7 +67,7 @@ export const TeamsPage = (): JSX.Element => {
           style={{ width: 700, textAlign: "center" }}>
           <Table
             columns={columns}
-            dataSource={playedGamesData.map((g) => ({
+            dataSource={PLAYED_GAMES_DATA.map((g) => ({
               ...g,
               key: `${String(g.date)} ${g.teams}`
             }))}
@@ -99,7 +83,7 @@ export const TeamsPage = (): JSX.Element => {
           style={{ width: 700, textAlign: "center" }}>
           <Table
             columns={columns}
-            dataSource={expectedGamesData.map((g) => ({
+            dataSource={EXPECTED_GAMES_DATA.map((g) => ({
               ...g,
               key: `${String(g.date)} ${g.teams}`
             }))}

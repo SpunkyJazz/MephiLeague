@@ -8,44 +8,13 @@ import {
   Col,
   Carousel
 } from "antd";
-import { TSelectedTeam } from "./types";
+import { TProps } from "./types";
 import { CSSProperties } from "react";
 import VK from "src/assets/iconVK.png";
-
-type TProps = {
-  data: TSelectedTeam | undefined;
-  unselectTeam: () => void;
-};
+import { COLUMNS_TEAMPLAYERS } from "src/constants";
 
 export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
   const { Title } = Typography;
-
-  const columns: any = [
-    {
-      title: "Игрок",
-      dataIndex: "player_name",
-      key: "player_name",
-      align: "center"
-    },
-    {
-      title: "Матчи",
-      dataIndex: "player_games",
-      key: "player_games",
-      align: "center"
-    },
-    {
-      title: "Голы",
-      dataIndex: "player_goals",
-      key: "player_goals",
-      align: "center"
-    },
-    {
-      title: "Ассисты",
-      dataIndex: "player_assists",
-      key: "player_assists",
-      align: "center"
-    }
-  ];
 
   const contentStyle: CSSProperties = {
     height: "480px",
@@ -63,8 +32,8 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
           <Button onClick={unselectTeam}>Назад</Button>
           <Title level={1}>{data?.name}</Title>
           <Space>
-            <Button href={data?.VKgroup} target="_blank">
-              <img src={VK} alt="VK" />
+            <Button href={data?.VKgroup} style={{ width: 72 }} target="_blank">
+              <img src={VK} width={24} />
             </Button>
           </Space>
         </Row>
@@ -96,7 +65,7 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
           title="Состав команды"
           style={{ width: 820, textAlign: "center" }}>
           <Table
-            columns={columns}
+            columns={COLUMNS_TEAMPLAYERS}
             dataSource={data?.players.map((p) => ({ player_name: p }))}
             size="small"
             pagination={false}

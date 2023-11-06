@@ -13,8 +13,17 @@ import miy from "src/assets/miy.png";
 import serpent from "src/assets/serpent.png";
 import stereo from "src/assets/stereo.png";
 import tokos from "src/assets/tokos.png";
+
 import img1 from "src/assets/img1.jpg";
 import img2 from "src/assets/img2.jpg";
+import img3 from "src/assets/img3.jpg";
+import img4 from "src/assets/img4.jpg";
+import img5 from "src/assets/img5.jpg";
+import img6 from "src/assets/img6.jpg";
+import img7 from "src/assets/img7.jpg";
+import img8 from "src/assets/img8.jpg";
+import img9 from "src/assets/img9.jpg";
+import img10 from "src/assets/img10.jpg";
 
 export const TEAMS: TSelectedTeam[] = [
   {
@@ -179,4 +188,20 @@ export const TEAMS: TSelectedTeam[] = [
   }
 ];
 
-export const IMAGES = [img1, img2];
+export const PLAYED_GAMES_DATA = [
+  { date: "01.01", teams: "Арсенал - Ман Сити", score: "10:0" },
+  { date: "02.01", teams: "Реал - Барселона", score: "1:2" },
+  { date: "03.01", teams: "Ливерпуль - Ман Юнайтед", score: "5:0" },
+  { date: "04.01", teams: "Челси - Бормут", score: "0:7" },
+  { date: "05.01", teams: "Зенит - ЦСКА", score: "1:4" }
+];
+
+export const EXPECTED_GAMES_DATA = [
+  { date: null, teams: "Арсенал - Ман Сити", score: "vs" },
+  { date: null, teams: "Реал - Барселона", score: "vs" },
+  { date: null, teams: "Ливерпуль - Ман Юнайтед", score: "vs" },
+  { date: null, teams: "Челси - Бормут", score: "vs" },
+  { date: null, teams: "Зенит - ЦСКА", score: "vs" }
+];
+
+export const IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
