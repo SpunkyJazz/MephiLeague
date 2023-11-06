@@ -10,7 +10,7 @@ import {
 } from "antd";
 import { TSelectedTeam } from "./types";
 import { CSSProperties } from "react";
-import VK from "src/assets/iconVK.png"
+import VK from "src/assets/iconVK.png";
 
 type TProps = {
   data: TSelectedTeam | undefined;
@@ -64,12 +64,12 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
           <Title level={1}>{data?.name}</Title>
           <Space>
             <Button href={data?.VKgroup} target="_blank">
-              <img src="src/assets/iconVK.png" alt="VK" />
+              <img src={VK} alt="VK" />
             </Button>
           </Space>
         </Row>
         <img
-          style={{ display: "block", margin: "0 auto"}}
+          style={{ display: "block", margin: "0 auto" }}
           src={data?.logo}
           width={250}
           data-proportion-h="1"
@@ -92,7 +92,9 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
         </Carousel>
       </Col>
       <Col style={{ width: 820 }}>
-        <Card title="Состав команды" style={{ width: 820, textAlign: "center" }}>
+        <Card
+          title="Состав команды"
+          style={{ width: 820, textAlign: "center" }}>
           <Table
             columns={columns}
             dataSource={data?.players.map((p) => ({ player_name: p }))}
@@ -101,7 +103,9 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
             bordered
           />
         </Card>
-        <Card title="Расписание команды" style={{ width: 820, textAlign: "center" }}>
+        <Card
+          title="Расписание команды"
+          style={{ width: 820, textAlign: "center" }}>
           <Table
           // columns={}
           // dataSource={}

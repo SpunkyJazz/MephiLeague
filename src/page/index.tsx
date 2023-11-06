@@ -2,7 +2,12 @@ import { createElement, useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { Avatar, Button, Layout, Menu, Row } from "antd";
-import { MenuFoldOutlined, MenuUnfoldOutlined, TwitterOutlined, YoutubeOutlined } from "@ant-design/icons";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  TwitterOutlined,
+  YoutubeOutlined
+} from "@ant-design/icons";
 import { AuthPage } from "./Auth";
 import { TeamsPage } from "./Teams";
 import { TimeTablePage } from "./TimeTablePage";
@@ -13,7 +18,7 @@ import { clientRoutes } from "src/routes/client";
 import { MENU_ITEMS } from "src/constants";
 import Logo from "src/assets/logo.svg";
 import "src/styles/index.css";
-import { Space } from 'antd';
+import { Space } from "antd";
 
 export const Page = observer((): JSX.Element => {
   const { Content, Header, Sider } = Layout;
@@ -32,7 +37,7 @@ export const Page = observer((): JSX.Element => {
           collapsible
           collapsed={collapsed}>
           <Row justify="center" style={{ height: 64, alignItems: "center" }}>
-            <Logo width={85} height={64}/>
+            <Logo width={85} height={64} />
           </Row>
           <Menu
             theme="dark"
@@ -65,8 +70,16 @@ export const Page = observer((): JSX.Element => {
                 }}
               />
               <Space>
-                <Button icon={<YoutubeOutlined rev={undefined} />} href="https://www.youtube.com/@mephileague" target="_blank"/>
-                <Button icon={<TwitterOutlined rev={undefined} />} href="https://m.vk.com/mephileague?from=groups" target="_blank"/>
+                <Button
+                  icon={<YoutubeOutlined rev={undefined} />}
+                  href="https://www.youtube.com/@mephileague"
+                  target="_blank"
+                />
+                <Button
+                  icon={<TwitterOutlined rev={undefined} />}
+                  href="https://m.vk.com/mephileague?from=groups"
+                  target="_blank"
+                />
                 <Avatar>МД</Avatar>
               </Space>
             </Row>
