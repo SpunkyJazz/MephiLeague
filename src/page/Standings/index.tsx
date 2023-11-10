@@ -6,7 +6,7 @@ export const StandingsPage = (): JSX.Element => {
 
   return (
     <>
-      <Card title="Турнирная таблица" style={{ textAlign: "center" }}></Card>
+      <Card style={{ textAlign: "center", fontSize: 24 }}>Турнирная таблица</Card>
       <Table
         columns={COLUMNS_STANDINGS}
         dataSource={dataSource}

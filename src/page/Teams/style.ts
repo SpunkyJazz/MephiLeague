@@ -1,4 +1,4 @@
-import { Col, Table, Typography } from "antd";
+import { Col } from "antd";
 import styled from "styled-components";
 
 export const TableCol = styled(Col)`
@@ -13,4 +13,11 @@ export const TeamCol = styled(Col)`
   align-items: center;
   cursor: pointer;
   gap: 15px;
+`;
+
+export const PlayersCol = styled(Col)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 `;

@@ -10,7 +10,7 @@ export const StaticsPage = (): JSX.Element => {
   return (
     <Row gutter={[30, 30]}>
       <TableCol span={12}>
-        <Card title="Бомбардиры" style={{ width: 750, textAlign: "center" }}>
+        <Card style={{ width: 750, textAlign: "center", fontSize: 24 }}>Бомбардиры
           <Table
             columns={COLUMNS_GOALS}
             dataSource={goals}
@@ -21,7 +21,7 @@ export const StaticsPage = (): JSX.Element => {
         </Card>
       </TableCol>
       <TableCol span={12}>
-        <Card title="Ассистенты" style={{ width: 750, textAlign: "center" }}>
+        <Card style={{ width: 750, textAlign: "center", fontSize: 24 }}>Ассистенты
           <Table
             columns={COLUMNS_ASSISTS}
             dataSource={assists}

@@ -62,9 +62,8 @@ export const TeamsPage = (): JSX.Element => {
   ) : (
     <Row gutter={[30, 30]}>
       <TableCol span={12}>
-        <Card
-          title="Сыгранные матчи"
-          style={{ width: 700, textAlign: "center" }}>
+        <Card style={{ width: 700, textAlign: "center", fontSize: 24 }}>
+          Сыгранные матчи
           <Table
             columns={columns}
             dataSource={PLAYED_GAMES_DATA.map((g) => ({
@@ -78,9 +77,8 @@ export const TeamsPage = (): JSX.Element => {
         </Card>
       </TableCol>
       <TableCol span={12}>
-        <Card
-          title="Предстоящие матчи"
-          style={{ width: 700, textAlign: "center" }}>
+        <Card style={{ width: 700, textAlign: "center", fontSize: 24 }}>
+          Предстоящие матчи
           <Table
             columns={columns}
             dataSource={EXPECTED_GAMES_DATA.map((g) => ({

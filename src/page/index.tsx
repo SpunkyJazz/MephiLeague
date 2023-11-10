@@ -37,7 +37,8 @@ export const Page = observer((): JSX.Element => {
           collapsible
           collapsed={collapsed}>
           <Row justify="center" style={{ height: 64, alignItems: "center" }}>
-            <Logo width={85} height={64} />
+            <img src={Logo} width={150} height={64} />
+            {/* <Logo width={150} height={64} /> */}
           </Row>
           <Menu
             theme="dark"

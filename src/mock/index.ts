@@ -11,6 +11,8 @@ import mifkar1 from "src/assets/mifkarPhoto1.png";
 import mifkar2 from "src/assets/mifkarPhoto2.png";
 import miy from "src/assets/miy.png";
 import serpent from "src/assets/serpent.png";
+import serpent1 from "src/assets/serpentPhoto1.png";
+import serpent2 from "src/assets/serpentPhoto2.png";
 import stereo from "src/assets/stereo.png";
 import tokos from "src/assets/tokos.png";
 
@@ -104,9 +106,9 @@ export const TEAMS: TSelectedTeam[] = [
       "Илюхин Максим Владимирович"
     ],
     logo: serpent,
-    img1: barabella1,
-    img2: barabella1,
-    VKgroup: "https://m.vk.com/bara_bella?from=groups"
+    img1: serpent1,
+    img2: serpent2,
+    VKgroup: "https://vk.com/fcserpent"
   },
   {
     name: "Квант",

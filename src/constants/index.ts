@@ -36,87 +36,96 @@ export const MENU_ITEMS = [
   }
 ];
 
-export const COLUMNS_STANDINGS = [
+export const COLUMNS_STANDINGS: any = [
   {
     title: "Команда",
     dataIndex: "team",
-    key: "team"
+    key: "team",
+    align: "center"
   },
   {
     title: "Игры",
     dataIndex: "games",
-    key: "games"
+    key: "games",
+    align: "center"
   },
   {
     title: "Победы",
     dataIndex: "win",
-    key: "win"
+    key: "win",
+    align: "center"
   },
   {
     title: "Ничьи",
     dataIndex: "draw",
-    key: "draw"
+    key: "draw",
+    align: "center"
   },
   {
     title: "Поражения",
     dataIndex: "loses",
-    key: "loses"
+    key: "loses",
+    align: "center"
   },
   {
     title: "Забито мячей",
     dataIndex: "scored",
-    key: "scored"
+    key: "scored",
+    align: "center"
   },
   {
     title: "Пропущено мячей",
     dataIndex: "missed",
-    key: "missed"
-  },
-  {
-    title: "Разница мячей",
-    dataIndex: "difference",
-    key: "difference"
+    key: "missed",
+    align: "center"
   },
   {
     title: "Очки",
     dataIndex: "points",
-    key: "points"
+    key: "points",
+    align: "center"
   }
 ];
 
-export const COLUMNS_GOALS = [
+export const COLUMNS_GOALS: any = [
   {
     title: "Имя",
     dataIndex: "name",
-    key: "name"
+    key: "name",
+    align: "center"
   },
   {
     title: "Команда",
     dataIndex: "team",
-    key: "team"
+    key: "team",
+    align: "center"
   },
   {
     title: "Голы",
     dataIndex: "score",
-    key: "score"
+    key: "score",
+    align: "center"
   }
 ];
 
-export const COLUMNS_ASSISTS = [
+export const COLUMNS_ASSISTS: any = [
   {
     title: "Имя",
     dataIndex: "name",
-    key: "name"
+    key: "name",
+    align: "center"
   },
   {
     title: "Команда",
     dataIndex: "team",
-    key: "team"
+    key: "team",
+    align: "center"
   },
   {
     title: "Ассисты",
     dataIndex: "assists",
-    key: "assists"
+    key: "assists",
+    align: "center"
   }
 ];
 
@@ -143,6 +152,39 @@ export const COLUMNS_TEAMPLAYERS: any = [
     title: "Ассисты",
     dataIndex: "player_assists",
     key: "player_assists",
+    align: "center"
+  },
+  {
+    title: "ЖК",
+    dataIndex: "player_yellowCards",
+    key: "player_yellowCards",
+    align: "center"
+  },
+  {
+    title: "КК",
+    dataIndex: "player_redCards",
+    key: "player_redCards",
+    align: "center"
+  }
+];
+
+export const COLUMNS_TIME_TABLE: any = [
+  {
+    title: "Дата",
+    dataIndex: "date",
+    key: "date",
+    align: "center"
+  },
+  {
+    title: "Команды",
+    dataIndex: "teams",
+    key: "teams",
+    align: "center"
+  },
+  {
+    title: "Счет",
+    dataIndex: "score",
+    key: "score",
     align: "center"
   }
 ];
