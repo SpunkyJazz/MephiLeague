@@ -76,7 +76,8 @@ module.exports = (env) => {
       port: 41001,
       hot: false,
       liveReload: true,
-      static: path.join(rootDir, "build")
+      static: path.join(rootDir, "build"),
+      proxy: { "/test": "http://192.168.31.116:5005" }
     }
   };
 

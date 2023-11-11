@@ -7,16 +7,53 @@ import {
   Typography,
   Col,
   Carousel,
-  List
+  List,
+  message,
+  Tag
 } from "antd";
 import { TProps } from "./types";
-import { CSSProperties, useState } from "react";
+import { useEffect, useState } from "react";
 import { COLUMNS_TEAMPLAYERS } from "src/constants";
 import { Players } from "./Player";
 import { TwitterOutlined } from "@ant-design/icons";
+import { TTeam } from "src/api/mephi-league/types";
+import { MephiLeagueApi } from "src/api/mephi-league";
+import photo from "src/assets/2.png";
 
 export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
   const { Title } = Typography;
+
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [team, setTeam] = useState<TTeam | undefined>();
+
+  // useEffect(() => {
+  //   MephiLeagueApi.getTeam("barabella")
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       setTeam(res.data);
+  //     })
+  //     .catch(() => message.error("Ошибка при загрузке"))
+  //     .finally(() => setIsLoading(false));
+  // }, []);
+
+
+
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [source, setSource] = useState<any>();
+
+  useEffect(() => {
+    MephiLeagueApi.getWay()
+      .then((res) => {
+        console.log(res.data);
+        setSource(res.data);
+      })
+      .catch(() => message.error("Ошибка при загрузке"))
+      .finally(() => setIsLoading(false));
+  }, []);
+
+
+
 
   const [selectedPlayers, setSelectedPlayers] = useState<string[]>();
 
@@ -34,6 +71,7 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
     <Players data={selectedPlayers} unselectPlayer={handleUnselectPlayers} />
   ) : (
     <Row gutter={[20, 20]} justify="space-between">
+      {/* {source?.members.map((e:any) => <Tag>{e.name}</Tag>)} */}
       <Col style={{ width: 860 }}>
         <Row justify="space-between">
           <Button onClick={unselectTeam}>Назад</Button>
