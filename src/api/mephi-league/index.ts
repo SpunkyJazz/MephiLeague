@@ -1,13 +1,25 @@
 import { ApiCommon } from "../Common";
 import { TResponse } from "../Common/types";
-import { TTeam } from "./types";
+import { TPlayer, TTimeTable, TTeam } from "./types";
 
 export class MephiLeagueApiClass extends ApiCommon {
-  public getTeam = <T = TTeam>(id: string): TResponse<T> =>
-    this.get<T>(`/league/v1/team/${id}`);
+  public getPlayer = <T = TPlayer>(): TResponse<T> =>
+    this.get<T>(`http://192.168.31.116:5005/GetPlayers`);
 
-  public getWay = <T = string>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/test`);
-  }
+  public getTeam = <T = TTeam>(id: string): TResponse<T> =>
+    this.get<T>(`http://192.168.31.116:5005/GetTeam/${id}`);
+
+  public getTeams = <T = TTeam[]>(): TResponse<T> =>
+    this.get<T>(`http://192.168.31.116:5005/GetTeams`);
+
+  public getGoals = <T = TPlayer[]>(): TResponse<T> =>
+    this.get<T>(`http://192.168.31.116:5005/GetGoals`);
+
+  public getAssists = <T = TPlayer[]>(): TResponse<T> =>
+    this.get<T>(`http://192.168.31.116:5005/GetAssists`);
+
+  public getTimeTable = <T = TTimeTable[]>(): TResponse<T> =>
+    this.get<T>(`http://192.168.31.116:5005/GetSchedule`);
+}
 
 export const MephiLeagueApi = new MephiLeagueApiClass();

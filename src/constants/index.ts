@@ -1,4 +1,3 @@
-import { createElement } from "react";
 import {
   TeamOutlined,
   ProfileOutlined,
@@ -6,6 +5,7 @@ import {
   SolutionOutlined,
   FileImageOutlined
 } from "@ant-design/icons";
+import { createElement } from "react";
 import { clientRoutes } from "src/routes/client";
 
 export const MENU_ITEMS = [

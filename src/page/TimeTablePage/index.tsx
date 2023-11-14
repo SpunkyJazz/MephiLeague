@@ -1,12 +1,25 @@
-import { Table, Tabs } from "antd";
+import { Table, Tabs, message } from "antd";
+import { useEffect, useState } from "react";
+import { MephiLeagueApi } from "src/api/mephi-league";
 import { COLUMNS_TIME_TABLE } from "src/constants";
 
 export const TimeTablePage = (): JSX.Element => {
-  const dataSource = [{}];
-
   const onChange = (key: string) => {
     console.log(key);
   };
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [timeTable, setTimeTable] = useState<any>();
+  useEffect(() => {
+    MephiLeagueApi.getTimeTable()
+      .then((res) => {
+        console.log(res.data);
+        setTimeTable(res.data);
+      })
+      .catch(() => message.error("Ошибка при загрузке"))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   return (
     <>
@@ -21,7 +34,13 @@ export const TimeTablePage = (): JSX.Element => {
             children: (
               <Table
                 columns={COLUMNS_TIME_TABLE}
-                dataSource={dataSource}
+                dataSource={timeTable?.map((p: any) =>
+                  p?.map((a: any) => ({
+                    data: [a.match_date],
+                    teams: [a.first_team, "-", a.second_team],
+                    score: [a.goal_first, ":", a.goal_second]
+                  }))
+                )}
                 size="small"
                 pagination={false}
                 bordered

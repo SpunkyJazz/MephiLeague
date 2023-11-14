@@ -1,15 +1,15 @@
 import LightGallery from "lightgallery/react";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
-import { IMAGES } from "src/mock";
+// import { IMAGES } from "src/mock";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-thumbnail.css";
 
 export const MediaPage = (): JSX.Element => (
   <LightGallery plugins={[lgThumbnail]}>
-    {IMAGES.map((image, index) => (
+    {/* {IMAGES.map((image, index) => (
       <a href={image} key={index}>
         <img height={220} src={image} />
       </a>
-    ))}
+    ))} */}
   </LightGallery>
 );

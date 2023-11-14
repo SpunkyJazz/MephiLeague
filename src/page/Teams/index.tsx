@@ -1,10 +1,11 @@
 import { PropsWithChildren, useState } from "react";
-import { Card, Row, Table, Tag, Typography } from "antd";
-import { TableCol, TeamCol } from "./style";
+import { Row, Typography } from "antd";
+import { TeamCol } from "./style";
 import { TSelectedTeam } from "./types";
 import { IBoopProps } from "./types";
 import { Team } from "./Team";
-import { EXPECTED_GAMES_DATA, PLAYED_GAMES_DATA, TEAMS } from "src/mock";
+import { TEAMS } from "src/mock";
+// import icon from "src/assets/1.png";
 
 export const TeamsPage = (): JSX.Element => {
   const { Title } = Typography;
@@ -30,25 +31,6 @@ export const TeamsPage = (): JSX.Element => {
     );
   };
 
-  const columns = [
-    {
-      title: "Дата",
-      dataIndex: "date",
-      key: "date"
-    },
-    {
-      title: "Команды",
-      dataIndex: "teams",
-      key: "teams"
-    },
-    {
-      title: "Счет",
-      dataIndex: "score",
-      key: "score",
-      render: (e: string) => <Tag>{e}</Tag>
-    }
-  ];
-
   const handleSelectTeam = (data: TSelectedTeam): void => {
     setSelectedTeam(data);
   };
@@ -60,41 +42,16 @@ export const TeamsPage = (): JSX.Element => {
   return selectedTeam ? (
     <Team data={selectedTeam} unselectTeam={handleUnselectTeam} />
   ) : (
-    <Row gutter={[30, 30]}>
-      <TableCol span={12}>
-        <Card style={{ width: 700, textAlign: "center", fontSize: 24 }}>
-          Сыгранные матчи
-          <Table
-            columns={columns}
-            dataSource={PLAYED_GAMES_DATA.map((g) => ({
-              ...g,
-              key: `${String(g.date)} ${g.teams}`
-            }))}
-            size="small"
-            // pagination={false}
-            bordered
-          />
-        </Card>
-      </TableCol>
-      <TableCol span={12}>
-        <Card style={{ width: 700, textAlign: "center", fontSize: 24 }}>
-          Предстоящие матчи
-          <Table
-            columns={columns}
-            dataSource={EXPECTED_GAMES_DATA.map((g) => ({
-              ...g,
-              key: `${String(g.date)} ${g.teams}`
-            }))}
-            size="small"
-            // pagination={false}
-            bordered
-          />
-        </Card>
-      </TableCol>
+    <Row gutter={[30, 30]} style={{ backgroundColor: "white" }}>
+      {/* <img
+        src={icon}
+        width="100%"
+        style={{ boxShadow: "rgb(28 88 200) 0px 0px 20px 20px" }}
+      /> */}
       {TEAMS.map((t) => (
         <TeamCol key={t.name} span={6} onClick={() => handleSelectTeam(t)}>
           <Boop scale={1.25} timing={200}>
-            <img src={t.logo} width={230} data-proportion-h="1" />
+            <img src={t.logo} width={260} data-proportion-h="1" />
             <Title style={{ textAlign: "center" }} level={3}>
               {t.name}
             </Title>
