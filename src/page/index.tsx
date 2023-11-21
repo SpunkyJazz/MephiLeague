@@ -14,6 +14,7 @@ import { TimeTablePage } from "./TimeTablePage";
 import { StandingsPage } from "./Standings";
 import { StaticsPage } from "./Statics";
 import { MediaPage } from "./Media";
+import { HistoryPage } from "./History";
 import { clientRoutes } from "src/routes/client";
 import { MENU_ITEMS } from "src/constants";
 import Logo from "src/assets/logo.svg";
@@ -98,6 +99,7 @@ export const Page = observer((): JSX.Element => {
             <Route path={clientRoutes.standings} element={<StandingsPage />} />
             <Route path={clientRoutes.statics} element={<StaticsPage />} />
             <Route path={clientRoutes.media} element={<MediaPage />} />
+            <Route path={clientRoutes.history} element={<HistoryPage />} />
           </Routes>
         </Content>
       </Layout>

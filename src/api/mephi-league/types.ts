@@ -32,6 +32,11 @@ export type TTeam = {
 };
 
 export type TTimeTable = {
+  id: number;
+  res: games[];
+};
+
+type games = {
   first_team: string;
   second_team: string;
   first_logo: string;
@@ -40,7 +45,7 @@ export type TTimeTable = {
   goal_first: number;
   goal_second: number;
   tour_number: number;
-};
+}
 
 export type TGoals = {
   name: string;

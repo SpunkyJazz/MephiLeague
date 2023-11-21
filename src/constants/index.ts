@@ -3,7 +3,8 @@ import {
   ProfileOutlined,
   TableOutlined,
   SolutionOutlined,
-  FileImageOutlined
+  FileImageOutlined,
+  HistoryOutlined
 } from "@ant-design/icons";
 import { createElement } from "react";
 import { clientRoutes } from "src/routes/client";
@@ -33,7 +34,12 @@ export const MENU_ITEMS = [
     key: clientRoutes.media,
     icon: createElement(FileImageOutlined),
     label: "Галерея"
-  }
+  },
+  {
+    key: clientRoutes.history,
+    icon: createElement(HistoryOutlined),
+    label: "История"
+  },
 ];
 
 export const COLUMNS_STANDINGS: any = [
@@ -185,6 +191,45 @@ export const COLUMNS_TIME_TABLE: any = [
     title: "Счет",
     dataIndex: "score",
     key: "score",
+    align: "center"
+  }
+];
+
+export const HISTORY_STANDINGS: any = [
+  {
+    title: "Команда",
+    dataIndex: "team",
+    key: "team",
+    align: "center"
+  },
+  {
+    title: "Игры",
+    dataIndex: "games",
+    key: "games",
+    align: "center"
+  },
+  {
+    title: "Победы",
+    dataIndex: "win",
+    key: "win",
+    align: "center"
+  },
+  {
+    title: "Ничьи",
+    dataIndex: "draw",
+    key: "draw",
+    align: "center"
+  },
+  {
+    title: "Поражения",
+    dataIndex: "loses",
+    key: "loses",
+    align: "center"
+  },
+  {
+    title: "Очки",
+    dataIndex: "points",
+    key: "points",
     align: "center"
   }
 ];

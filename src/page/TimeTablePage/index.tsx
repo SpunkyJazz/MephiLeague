@@ -26,21 +26,18 @@ export const TimeTablePage = (): JSX.Element => {
       <Tabs
         onChange={onChange}
         type="card"
-        items={new Array(8).fill(null).map((_, i) => {
-          const id = String(i + 1);
+        items={timeTable.map((i: any) => {
           return {
-            label: `${id} тур`,
-            key: id,
+            label: `${i.id} тур`,
+            key: i.id,
             children: (
               <Table
                 columns={COLUMNS_TIME_TABLE}
-                dataSource={timeTable?.map((p: any) =>
-                  p?.map((a: any) => ({
-                    data: [a.match_date],
-                    teams: [a.first_team, "-", a.second_team],
-                    score: [a.goal_first, ":", a.goal_second]
-                  }))
-                )}
+                dataSource={i?.res.map((p: any) => ({
+                  data: [p.match_date],
+                  teams: [p.first_team, "-", p.second_team],
+                  score: [p.goal_first, ":", p.goal_second],
+                }))}
                 size="small"
                 pagination={false}
                 bordered
