@@ -10,7 +10,9 @@ export const Players = ({ data, unselectPlayer }: PProps): JSX.Element => {
     return (
       <div className="card">
         <div className="front">
-          {player && <img src={player?.photo[0].url} width={360} height={360} />}
+          {player && (
+            <img src={player?.photo[0].url} width={300} height={300} />
+          )}
           <Title level={4} style={{ textAlign: "center" }}>
             {[player.surname, " ", player.name, " ", player.lastname]}
           </Title>
@@ -32,6 +34,28 @@ export const Players = ({ data, unselectPlayer }: PProps): JSX.Element => {
             <div>
               <h3>Позиция: {player.role}</h3>
             </div>
+            <Row justify="space-between" style={{ margin: 10, marginTop: 20 }}>
+              <Col>
+                Матчей
+                <h3>{player.number_of_matches}</h3>
+              </Col>
+              <Col>
+                Голов
+                <h3>{player.number_of_goals}</h3>
+              </Col>
+              <Col>
+                Передачи
+                <h3>{player.number_of_assists}</h3>
+              </Col>
+              <Col>
+                ЖК
+                <h3>{player.yellow_cards}</h3>
+              </Col>
+              <Col>
+                КК
+                <h3>{player.red_cards}</h3>
+              </Col>
+            </Row>
           </div>
         </div>
       </div>
@@ -41,9 +65,9 @@ export const Players = ({ data, unselectPlayer }: PProps): JSX.Element => {
   return (
     <Col>
       <Button onClick={unselectPlayer}>Назад</Button>
-      <Row gutter={[24, 24]} style={{ rowGap: 50 }}>
+      <Row gutter={[24, 24]} style={{ rowGap: 60 }}>
         {data.map((player) => (
-          <PlayersCol span={6}>
+          <PlayersCol xxl={6} xl={8} lg={12} md={12} sm={24} xs={24}>
             <HoverImg player={player} />
           </PlayersCol>
         ))}

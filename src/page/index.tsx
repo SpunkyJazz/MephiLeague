@@ -1,13 +1,8 @@
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  TwitterOutlined,
-  YoutubeOutlined
-} from "@ant-design/icons";
-import { createElement, useState } from "react";
+import { TwitterOutlined, YoutubeOutlined } from "@ant-design/icons";
+import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import { Avatar, Button, Layout, Menu, Row, Space } from "antd";
+import { Button, Layout, Menu, Row, Space } from "antd";
 import { AuthPage } from "./Auth";
 import { TeamsPage } from "./Teams";
 import { TimeTablePage } from "./TimeTablePage";
@@ -15,9 +10,11 @@ import { StandingsPage } from "./Standings";
 import { StaticsPage } from "./Statics";
 import { MediaPage } from "./Media";
 import { HistoryPage } from "./History";
+import { ContactsPage } from "./Contacts";
 import { clientRoutes } from "src/routes/client";
 import { MENU_ITEMS } from "src/constants";
-import Logo from "src/assets/logo.svg";
+import Logo from "src/assets/logo.png";
+import Logo2 from "src/assets/logo2.png";
 import "src/styles/index.css";
 
 export const Page = observer((): JSX.Element => {
@@ -30,14 +27,21 @@ export const Page = observer((): JSX.Element => {
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
-        theme="dark"
         width={250}
-        trigger={null}
-        collapsible
-        collapsed={collapsed}>
+        breakpoint="lg"
+        collapsedWidth="0"
+        onBreakpoint={(broken) => {
+          console.log(broken);
+        }}
+        onCollapse={(collapsed, type) => {
+          console.log(collapsed, type);
+        }}>
         <Row justify="center" style={{ height: 64, alignItems: "center" }}>
-          {/* <img src={Logo} width={150} height={64} /> */}
-          <Logo width={150} height={64} />
+          {collapsed ? (
+            <img src={Logo2} width={50} height={50} />
+          ) : (
+            <img src={Logo} width={160} height={50} />
+          )}
         </Row>
         <Menu
           theme="dark"
@@ -58,19 +62,7 @@ export const Page = observer((): JSX.Element => {
             background: "white",
             overflowX: "auto"
           }}>
-          <Row justify="space-between" style={{ alignItems: "center" }}>
-            <Button
-              type="text"
-              icon={createElement(
-                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined
-              )}
-              onClick={() => setCollapsed(!collapsed)}
-              style={{
-                fontSize: "16px",
-                width: 64,
-                height: 64
-              }}
-            />
+          <Row justify="end" style={{ alignItems: "center" }}>
             <Space>
               <Button
                 icon={<YoutubeOutlined rev={undefined} />}
@@ -82,7 +74,6 @@ export const Page = observer((): JSX.Element => {
                 href="https://m.vk.com/mephileague?from=groups"
                 target="_blank"
               />
-              <Avatar>МД</Avatar>
             </Space>
           </Row>
         </Header>
@@ -90,7 +81,8 @@ export const Page = observer((): JSX.Element => {
           style={{
             padding: 24,
             minHeight: 280,
-            overflow: "auto"
+            overflow: "auto",
+            backgroundColor: "rgb(220, 220, 220)"
           }}>
           <Routes>
             <Route path={clientRoutes.auth} element={<AuthPage />} />
@@ -100,6 +92,7 @@ export const Page = observer((): JSX.Element => {
             <Route path={clientRoutes.statics} element={<StaticsPage />} />
             <Route path={clientRoutes.media} element={<MediaPage />} />
             <Route path={clientRoutes.history} element={<HistoryPage />} />
+            <Route path={clientRoutes.contacts} element={<ContactsPage />} />
           </Routes>
         </Content>
       </Layout>

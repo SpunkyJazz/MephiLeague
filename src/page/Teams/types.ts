@@ -1,7 +1,7 @@
 import { TPlayer } from "src/api/mephi-league/types";
 
 export type TSelectedTeam = {
-  name: string;
+  team_name: string;
   logo: string;
 };
 

@@ -16,7 +16,7 @@ export type TPlayer = {
 
 export type TTeam = {
   team_name: string;
-  logo: string[];
+  logo: string;
   VK: string;
   captain: string;
   gallery: string[];
@@ -45,7 +45,7 @@ type games = {
   goal_first: number;
   goal_second: number;
   tour_number: number;
-}
+};
 
 export type TGoals = {
   name: string;
@@ -57,4 +57,26 @@ export type TAssists = {
   name: string;
   team: string;
   asissts: number;
+};
+
+export type THistory = {
+  name_of_tournament: string;
+  video: string;
+  photo: string;
+  top_goals: TPlayer[];
+  top_assists: TPlayer[];
+  top_goals_assists: TPlayer[];
+  table: TTeam[];
+};
+
+export type TAdmins = {
+  name: string;
+  photo: string;
+  tg: string;
+  job: string;
+};
+
+export type TMainPage = {
+  best_goals: TPlayer;
+  best_assists: TPlayer;
 };

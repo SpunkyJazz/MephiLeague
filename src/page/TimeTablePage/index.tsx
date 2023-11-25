@@ -10,7 +10,7 @@ export const TimeTablePage = (): JSX.Element => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const [timeTable, setTimeTable] = useState<any>();
+  const [timeTable, setTimeTable] = useState<any>([]);
   useEffect(() => {
     MephiLeagueApi.getTimeTable()
       .then((res) => {
@@ -22,30 +22,37 @@ export const TimeTablePage = (): JSX.Element => {
   }, []);
 
   return (
-    <>
-      <Tabs
-        onChange={onChange}
-        type="card"
-        items={timeTable.map((i: any) => {
-          return {
-            label: `${i.id} тур`,
-            key: i.id,
-            children: (
-              <Table
-                columns={COLUMNS_TIME_TABLE}
-                dataSource={i?.res.map((p: any) => ({
-                  data: [p.match_date],
-                  teams: [p.first_team, "-", p.second_team],
-                  score: [p.goal_first, ":", p.goal_second],
-                }))}
-                size="small"
-                pagination={false}
-                bordered
-              />
-            )
-          };
-        })}
-      />
-    </>
+    <Tabs
+      onChange={onChange}
+      type="card"
+      items={timeTable.map((index: any) => {
+        return {
+          label: `${index.id} тур`,
+          key: index.id,
+          children: (
+            <Table
+              columns={COLUMNS_TIME_TABLE}
+              dataSource={index?.res.map((p: any) => ({
+                date: [p.match_date],
+                teams: [
+                  <img src={p.first_logo} />,
+                  "   ",
+                  p.first_team,
+                  "-",
+                  p.second_team,
+                  "   ",
+                  <img src={p.second_logo} />
+                ],
+                score: [p.goal_first, ":", p.goal_second]
+              }))}
+              size="small"
+              pagination={false}
+              loading={isLoading}
+              bordered
+            />
+          )
+        };
+      })}
+    />
   );
 };

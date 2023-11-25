@@ -5,5 +5,6 @@ export const clientRoutes = {
   standings: "/standings",
   statics: "/statics",
   media: "/media",
-  history: "/history"
+  history: "/history",
+  contacts: "/contacts"
 };

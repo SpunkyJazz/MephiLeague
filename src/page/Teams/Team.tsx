@@ -1,18 +1,7 @@
-import {
-  Button,
-  Card,
-  Row,
-  Space,
-  Table,
-  Typography,
-  Col,
-  List,
-  message
-} from "antd";
-import { TProps } from "./types";
+import { Button, Card, Row, Table, Typography, Col, List, message } from "antd";
 import { useTheme } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import { COLUMNS_TEAMPLAYERS } from "src/constants";
+import { COLUMNS_TEAMPLAYERS, TEAM_TIME_TABLE } from "src/constants";
 import { Players } from "./Player";
 import { TwitterOutlined } from "@ant-design/icons";
 import { MephiLeagueApi } from "src/api/mephi-league";
@@ -24,14 +13,14 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { TPlayer } from "src/api/mephi-league/types";
 
-export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
+export const Team = ({ data, unselectTeam }: any): JSX.Element => {
   const { Title } = Typography;
 
   const [isLoading, setIsLoading] = useState(true);
 
   const [team, setTeam] = useState<any>();
   useEffect(() => {
-    MephiLeagueApi.getTeam(data?.name)
+    MephiLeagueApi.getTeam(data?.team_name)
       .then((res) => {
         console.log(res.data);
         setTeam(res.data);
@@ -91,8 +80,8 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
   return selectedPlayers ? (
     <Players data={selectedPlayers} unselectPlayer={handleUnselectPlayers} />
   ) : (
-    <Row gutter={[20, 20]} justify="space-between">
-      <Col style={{ width: 860 }}>
+    <Row gutter={[24, 24]} justify="space-between">
+      <Col xxl={12} xl={24} lg={24} md={24} sm={24} xs={24}>
         <Row justify="space-between">
           <Button onClick={unselectTeam}>Назад</Button>
           <Button
@@ -107,41 +96,36 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
           style={{
             textAlign: "center",
             padding: "7px",
-            margin: "7px"
-            // border: "15px ridge black"
+            margin: "7px",
+            backgroundColor: "white",
+            borderRadius: "15px",
+            marginBottom: 20,
+            boxShadow: "0 0 30px grey"
           }}>
-          <Col style={{ width: 230 }}>
-            {team && <img src={team?.logo[0].url} width={230} height={230} />}
+          <Col xxl={10} xl={8} lg={10} md={24} sm={24} xs={24}>
+            <img src={team?.logo[0].url} width={230} height={230} />
             <Button
-              style={{
-                margin: "10px",
-                backgroundColor: "grey",
-                fontSize: "16px",
-                color: "white",
-                border: "3px solid black"
-              }}
-              onClick={() => handleSelectPlayers(team?.players)}>
+              onClick={() => handleSelectPlayers(team?.players)}
+              style={{ fontWeight: 500, margin: 10, width: 230 }}>
               Состав команды
             </Button>
           </Col>
-          <Space style={{ display: "block", width: "520px" }}>
-            <Col>
-              <Title level={1} style={{ margin: "0px" }}>
-                {data?.name}
-              </Title>
-              <Title level={4}> Капитан: </Title>
-              {team?.captain}
-              <Title level={4}>
-                Предыдущие заслуги:
-                <List
-                  size="small"
-                  bordered
-                  dataSource={listData}
-                  renderItem={(item) => <List.Item>{item}</List.Item>}
-                />
-              </Title>
-            </Col>
-          </Space>
+          <Col xxl={14} xl={16} lg={14} md={24} sm={24} xs={24}>
+            <Title level={1} style={{ margin: "0px" }}>
+              {team?.team_name}
+            </Title>
+            <Title level={4}> Капитан: </Title>
+            {team?.captain}
+            <Title level={4}>
+              Предыдущие заслуги:
+              <List
+                size="small"
+                bordered
+                dataSource={listData}
+                renderItem={(item) => <List.Item>{item}</List.Item>}
+              />
+            </Title>
+          </Col>
         </Row>
         <Box>
           <AutoPlaySwipeableViews
@@ -155,9 +139,7 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
                   <Box
                     component="img"
                     sx={{
-                      height: 480,
                       display: "block",
-                      maxWidth: 860,
                       overflow: "hidden",
                       width: "100%"
                     }}
@@ -198,32 +180,41 @@ export const Team = ({ data, unselectTeam }: TProps): JSX.Element => {
           />
         </Box>
       </Col>
-      <Col style={{ width: 780 }}>
-        <Card style={{ width: 780, textAlign: "center", fontSize: 24 }}>
+      <Col xxl={12} xl={24} lg={24} md={24} sm={24} xs={24}>
+        <Card
+          style={{
+            textAlign: "center",
+            fontSize: 24
+          }}>
           Статистика игроков
           <Table
             columns={COLUMNS_TEAMPLAYERS}
             dataSource={team?.players.map((p: any) => ({
-              player_name: [p.name, " ", p.surname, " ", p.lastname],
+              player_name: [p.surname, " ", p.name, " ", p.lastname],
               player_games: p.number_of_matches,
               player_goals: p.number_of_goals,
               player_assists: p.number_of_assists,
               player_yellowCards: p.yellow_cards,
               player_redCards: p.red_cards
             }))}
-            size="large"
+            size="middle"
             pagination={false}
             bordered
           />
         </Card>
-        <Card style={{ width: 780, textAlign: "center", fontSize: 24 }}>
+        <Card style={{ textAlign: "center", fontSize: 24 }}>
           Расписание команды
           <Table
-          // columns={}
-          // dataSource={}
-          // size="large"
-          // pagination={false}
-          // bordered
+            columns={TEAM_TIME_TABLE}
+            dataSource={team?.schedule.map((p: any) => ({
+              tour: p.tour_number,
+              date: [p.match_date],
+              teams: [p.first_team, "-", p.second_team],
+              score: [p.goal_first, ":", p.goal_second]
+            }))}
+            size="large"
+            pagination={false}
+            bordered
           />
         </Card>
       </Col>

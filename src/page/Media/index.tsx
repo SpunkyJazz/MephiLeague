@@ -1,6 +1,5 @@
 import LightGallery from "lightgallery/react";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
-// import { IMAGES } from "src/mock";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-thumbnail.css";
 

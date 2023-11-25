@@ -30,35 +30,39 @@ export const StaticsPage = (): JSX.Element => {
   }, []);
 
   return (
-    <Row gutter={[30, 30]}>
-      <TableCol span={12}>
-        <Card style={{ width: 750, textAlign: "center", fontSize: 24 }}>
+    <Row gutter={[24, 24]}>
+      <TableCol xxl={12} xl={24} lg={24} md={24} sm={24} xs={24}>
+        <Card style={{ textAlign: "center", fontSize: 24 }}>
           Бомбардиры
           <Table
             columns={COLUMNS_GOALS}
-            dataSource={goals?.map((p: any) => ({
-              name: [p.name, " ", p.surname, " ", p.lastname],
+            dataSource={goals?.map((p: any, index: number) => ({
+              index: index + 1,
+              name: [p.surname, " ", p.name],
               team: p.team,
               score: p.number_of_goals
             }))}
             size="small"
             pagination={false}
+            loading={isLoading}
             bordered
           />
         </Card>
       </TableCol>
-      <TableCol span={12}>
-        <Card style={{ width: 750, textAlign: "center", fontSize: 24 }}>
+      <TableCol xxl={12} xl={24} lg={24} md={24} sm={24} xs={24}>
+        <Card style={{ textAlign: "center", fontSize: 24 }}>
           Ассистенты
           <Table
             columns={COLUMNS_ASSISTS}
-            dataSource={assists?.map((p: any) => ({
-              name: [p.name, " ", p.surname, " ", p.lastname],
+            dataSource={assists?.map((p: any, index: number) => ({
+              index: index + 1,
+              name: [p.surname, " ", p.name],
               team: p.team,
               assists: p.number_of_assists
             }))}
             size="small"
             pagination={false}
+            loading={isLoading}
             bordered
           />
         </Card>

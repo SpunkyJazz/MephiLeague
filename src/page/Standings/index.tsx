@@ -1,7 +1,8 @@
-import { Card, Table, message } from "antd";
+import { Card, Col, Table, message } from "antd";
 import { useEffect, useState } from "react";
 import { MephiLeagueApi } from "src/api/mephi-league";
 import { COLUMNS_STANDINGS } from "src/constants";
+import { Team } from "../Teams/Team";
 
 export const StandingsPage = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,14 +18,36 @@ export const StandingsPage = (): JSX.Element => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  return (
-    <>
+  const [selectedTeam, setSelectedTeam] = useState<any>();
+
+  const handleSelectTeam = (data: any): void => {
+    setSelectedTeam(data);
+  };
+
+  const handleUnselectTeam = (): void => {
+    setSelectedTeam(undefined);
+  };
+
+  return selectedTeam ? (
+    <Team data={selectedTeam} unselectTeam={handleUnselectTeam} />
+  ) : (
+    <Col>
       <Card style={{ textAlign: "center", fontSize: 24 }}>
         Турнирная таблица
       </Card>
       <Table
         columns={COLUMNS_STANDINGS}
-        dataSource={standings?.map((p: any) => ({
+        dataSource={standings?.map((p: any, index: number) => ({
+          index: index + 1,
+          logo: (
+            <img
+              src={p?.logo[0].url}
+              width={70}
+              height={70}
+              onClick={() => handleSelectTeam(p)}
+              style={{ cursor: "pointer" }}
+            />
+          ),
           team: p.team_name,
           games: p.games_played,
           win: p.victory,
@@ -36,8 +59,9 @@ export const StandingsPage = (): JSX.Element => {
         }))}
         size="small"
         pagination={false}
+        loading={isLoading}
         bordered
       />
-    </>
+    </Col>
   );
 };
