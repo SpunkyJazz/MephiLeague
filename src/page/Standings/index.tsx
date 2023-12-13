@@ -32,16 +32,22 @@ export const StandingsPage = (): JSX.Element => {
     <Team data={selectedTeam} unselectTeam={handleUnselectTeam} />
   ) : (
     <Col>
-      <Card style={{ textAlign: "center", fontSize: 24 }}>
+      <Card
+        style={{
+          textAlign: "center",
+          fontSize: 24,
+          boxShadow: "0 0 30px #CCD2FF"
+        }}>
         Турнирная таблица
       </Card>
       <Table
+        style={{ boxShadow: "0 0 30px #CCD2FF" }}
         columns={COLUMNS_STANDINGS}
         dataSource={standings?.map((p: any, index: number) => ({
           index: index + 1,
           logo: (
             <img
-              src={p?.logo[0].url}
+              src={p?.logo}
               width={70}
               height={70}
               onClick={() => handleSelectTeam(p)}

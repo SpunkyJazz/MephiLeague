@@ -81,54 +81,75 @@ export const HistoryPage = (): JSX.Element => {
           key: k.name_of_tournament,
           children: (
             <>
-              <Col span={24}>
+              <Col
+                xxl={24}
+                xl={24}
+                lg={24}
+                md={24}
+                sm={24}
+                xs={24}
+                style={{ marginBottom: 20 }}>
                 <iframe
-                  width="100%"
-                  height="920"
                   src={k?.video}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                  width="100%"
+                  height={900}
+                  allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture; web-share"></iframe>
               </Col>
-              <Col span={24}>
-                <Card style={{ textAlign: "center", fontSize: 24 }}>
+              <Col span={24} style={{ marginBottom: 20 }}>
+                <Card
+                  style={{
+                    textAlign: "center",
+                    fontSize: 30,
+                    fontWeight: 600,
+                    boxShadow: "0 0 30px #CCD2FF"
+                  }}>
                   Турнирная таблица
-                  <Table
-                    columns={COLUMNS_STANDINGS}
-                    dataSource={k?.table.map((p: any, index: number) => ({
-                      index: index + 1,
-                      logo: (
-                        <img
-                          src={p?.logo[0].url}
-                          width={70}
-                          height={70}
-                          onClick={() => handleSelectTeam(p)}
-                          style={{ cursor: "pointer" }}
-                        />
-                      ),
-                      team: p.team_name,
-                      games: p.games_played,
-                      win: p.victory,
-                      draw: p.draw,
-                      loses: p.defeat,
-                      scored: p.goals_scored,
-                      missed: p.missed_goals,
-                      points: p.score
-                    }))}
-                    size="small"
-                    pagination={false}
-                    loading={isLoading}
-                    bordered
-                  />
                 </Card>
+                <Table
+                  style={{ boxShadow: "0 0 30px #CCD2FF" }}
+                  columns={COLUMNS_STANDINGS}
+                  dataSource={k?.table.map((p: any, index: number) => ({
+                    index: index + 1,
+                    logo: (
+                      <img
+                        src={p?.logo}
+                        width={70}
+                        height={70}
+                        onClick={() => handleSelectTeam(p)}
+                        style={{ cursor: "pointer" }}
+                      />
+                    ),
+                    team: p.team_name,
+                    games: p.games_played,
+                    win: p.victory,
+                    draw: p.draw,
+                    loses: p.defeat,
+                    scored: p.goals_scored,
+                    missed: p.missed_goals,
+                    points: p.score
+                  }))}
+                  size="small"
+                  pagination={false}
+                  loading={isLoading}
+                  bordered
+                />
               </Col>
               <Row gutter={[24, 24]}>
                 <Col xxl={12} xl={24} lg={24} md={24} sm={24} xs={24}>
                   <Box>
-                    <Card style={{ textAlign: "center", fontSize: 24 }}>
+                    <Card
+                      style={{
+                        textAlign: "center",
+                        fontSize: 30,
+                        fontWeight: 600,
+                        boxShadow: "0 0 30px #CCD2FF"
+                      }}>
                       {steps[activeStep].label}
                     </Card>
                     <Box>
                       {activeStep == 0 && (
                         <Table
+                          style={{ boxShadow: "0 0 30px #CCD2FF" }}
                           columns={COLUMNS_GOALS}
                           dataSource={k?.top_goals.map(
                             (p: any, index: number) => ({
@@ -146,6 +167,7 @@ export const HistoryPage = (): JSX.Element => {
                       )}
                       {activeStep == 1 && (
                         <Table
+                          style={{ boxShadow: "0 0 30px #CCD2FF" }}
                           columns={COLUMNS_ASSISTS}
                           dataSource={k?.top_assists.map(
                             (p: any, index: number) => ({
@@ -163,6 +185,7 @@ export const HistoryPage = (): JSX.Element => {
                       )}
                       {activeStep == 2 && (
                         <Table
+                          style={{ boxShadow: "0 0 30px #CCD2FF" }}
                           columns={COLUMNS_GOALS_ASSISTS}
                           dataSource={k?.top_goals_assists.map(
                             (p: any, index: number) => ({
@@ -181,6 +204,7 @@ export const HistoryPage = (): JSX.Element => {
                       )}
                     </Box>
                     <MobileStepper
+                      style={{ boxShadow: "0 0 30px #CCD2FF" }}
                       variant="text"
                       steps={maxSteps}
                       position="static"

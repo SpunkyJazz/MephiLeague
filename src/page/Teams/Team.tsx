@@ -29,28 +29,9 @@ export const Team = ({ data, unselectTeam }: any): JSX.Element => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  const images = [
-    {
-      imgPath:
-        "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60"
-    },
-    {
-      imgPath:
-        "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60"
-    },
-    {
-      imgPath:
-        "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      imgPath:
-        "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
-    }
-  ];
-
   const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
   const theme = useTheme();
-  const maxSteps = images.length;
+  const maxSteps = 2;
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -103,7 +84,7 @@ export const Team = ({ data, unselectTeam }: any): JSX.Element => {
             boxShadow: "0 0 30px grey"
           }}>
           <Col xxl={10} xl={8} lg={10} md={24} sm={24} xs={24}>
-            <img src={team?.logo[0].url} width={230} height={230} />
+            <img src={team?.logo} width={230} height={230} />
             <Button
               onClick={() => handleSelectPlayers(team?.players)}
               style={{ fontWeight: 500, margin: 10, width: 230 }}>
@@ -133,17 +114,16 @@ export const Team = ({ data, unselectTeam }: any): JSX.Element => {
             index={activeStep}
             onChangeIndex={handleStepChange}
             enableMouseEvents>
-            {images.map((step, index) => (
+            {team?.gallery.map((step: string, index: number) => (
               <div>
                 {Math.abs(activeStep - index) <= 2 ? (
                   <Box
                     component="img"
                     sx={{
                       display: "block",
-                      overflow: "hidden",
                       width: "100%"
                     }}
-                    src={step.imgPath}
+                    src={step}
                   />
                 ) : null}
               </div>
@@ -184,7 +164,8 @@ export const Team = ({ data, unselectTeam }: any): JSX.Element => {
         <Card
           style={{
             textAlign: "center",
-            fontSize: 24
+            fontSize: 24,
+            marginBottom: 20
           }}>
           Статистика игроков
           <Table

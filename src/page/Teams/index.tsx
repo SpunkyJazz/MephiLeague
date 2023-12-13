@@ -67,7 +67,7 @@ export const TeamsPage = (): JSX.Element => {
     <Team data={selectedTeam} unselectTeam={handleUnselectTeam} />
   ) : (
     <Col>
-      <Row gutter={[24, 24]} style={{ backgroundColor: "white" }}>
+      <Row gutter={[24, 24]}>
         {team?.map((t: any) => (
           <TeamCol
             key={t.team_name}
@@ -78,12 +78,11 @@ export const TeamsPage = (): JSX.Element => {
             md={8}
             sm={12}
             xs={24}>
-            <Boop scale={1.15} timing={200}>
+            <Boop scale={1.2} timing={200}>
               <img
-                src={t?.logo[0].url}
-                // src={"https://i.yapx.ru/WzRkz.png"}
-                width={230}
-                height={230}
+                src={t?.logo}
+                width={210}
+                height={210}
                 data-proportion-h="1"
               />
               <Title style={{ textAlign: "center" }} level={3}>
@@ -97,13 +96,18 @@ export const TeamsPage = (): JSX.Element => {
         gutter={[24, 24]}
         style={{ justifyContent: "space-between", marginTop: 20 }}>
         <Col xxl={8} xl={12} lg={24} md={24} sm={24} xs={24}>
-          <Card style={{ textAlign: "center", fontSize: 24 }}>
+          <Card
+            style={{
+              textAlign: "center",
+              fontSize: 24,
+              boxShadow: "0 0 30px #CCD2FF"
+            }}>
             Лучший Бомбардир
             <Col>
               <img
-                src={mainPage?.best_goal?.photo[0].url}
-                width={230}
-                height={230}
+                src={mainPage?.best_goal?.photo}
+                width={220}
+                height={220}
                 style={{ borderRadius: 150, marginBottom: 20 }}
               />
               <Title
@@ -127,13 +131,18 @@ export const TeamsPage = (): JSX.Element => {
           </Card>
         </Col>
         <Col xxl={8} xl={12} lg={24} md={24} sm={24} xs={24}>
-          <Card style={{ textAlign: "center", fontSize: 24 }}>
+          <Card
+            style={{
+              textAlign: "center",
+              fontSize: 24,
+              boxShadow: "0 0 30px #CCD2FF"
+            }}>
             Лучший Ассистент
             <Col>
               <img
-                src={mainPage?.best_assists?.photo[0].url}
-                width={230}
-                height={230}
+                src={mainPage?.best_assists?.photo}
+                width={220}
+                height={220}
                 style={{ borderRadius: 150, marginBottom: 20 }}
               />
               <Title
@@ -159,7 +168,12 @@ export const TeamsPage = (): JSX.Element => {
           </Card>
         </Col>
         <Col xxl={8} xl={24} lg={24} md={24} sm={24} xs={24}>
-          <Card style={{ textAlign: "center", fontSize: 24 }}>
+          <Card
+            style={{
+              textAlign: "center",
+              fontSize: 24,
+              boxShadow: "0 0 30px #CCD2FF"
+            }}>
             Ближайший матч
             <Col>
               <Row justify="space-between">

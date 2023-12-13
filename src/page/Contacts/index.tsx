@@ -8,7 +8,7 @@ export const ContactsPage = (): JSX.Element => {
   const { Title } = Typography;
   const [isLoading, setIsLoading] = useState(true);
 
-  const [admins, setAdmins] = useState<any>([]);
+  const [contacts, setAdmins] = useState<any>([]);
   useEffect(() => {
     MephiLeagueApi.getAdmins()
       .then((res) => {
@@ -22,35 +22,33 @@ export const ContactsPage = (): JSX.Element => {
   return (
     <>
       <YMaps>
-        <Card style={{ textAlign: "center", fontSize: 24 }}>
+        <Card style={{ textAlign: "center", fontSize: 30, fontWeight: 600 }}>
           Стадион "Koshka Stadium"
         </Card>
-        <div
-          style={{
-            marginLeft: 405,
-            marginRight: 405,
-            marginBottom: 30,
-            marginTop: 30
-            // borderRadius: "15px",
-            // boxShadow: "0 0 40px grey"
-          }}>
-          <Map
-            defaultState={{
-              center: [55.641884, 37.672249],
-              zoom: 16,
-              controls: ["zoomControl", "fullscreenControl"]
-            }}
-            modules={["control.ZoomControl", "control.FullscreenControl"]}
-            width={810}
-            height={460}>
-            <Placemark defaultGeometry={[55.641884, 37.672249]} />
-          </Map>
-        </div>
+        <Map
+          defaultState={{
+            center: [55.641884, 37.672249],
+            zoom: 16,
+            controls: ["zoomControl", "fullscreenControl"]
+          }}
+          modules={["control.ZoomControl", "control.FullscreenControl"]}
+          width="100%"
+          height={420}>
+          <Placemark defaultGeometry={[55.641884, 37.672249]} />
+        </Map>
       </YMaps>
-      <Card style={{ textAlign: "center", fontSize: 24 }}>
-        <div style={{ marginBottom: 30, fontSize: 30 }}>Руководство лиги</div>
+      <Card
+        style={{
+          textAlign: "center",
+          fontSize: 24,
+          marginBottom: 20,
+          boxShadow: "0 0 30px #CCD2FF"
+        }}>
+        <div style={{ marginBottom: 30, fontSize: 30, fontWeight: 600 }}>
+          Руководство лиги
+        </div>
         <Row gutter={[24, 24]} style={{ backgroundColor: "white" }}>
-          {admins?.map((a: any) => (
+          {contacts[3]?.admins?.map((a: any) => (
             <TeamCol
               key={a.name}
               xxl={6}
@@ -60,7 +58,7 @@ export const ContactsPage = (): JSX.Element => {
               sm={24}
               xs={24}>
               <img
-                src={a?.photo}
+                src={a.photo}
                 width={260}
                 height={260}
                 data-proportion-h="1"
@@ -74,6 +72,114 @@ export const ContactsPage = (): JSX.Element => {
               <Button href={a.tg} target="_blank">
                 Связаться
               </Button>
+            </TeamCol>
+          ))}
+        </Row>
+      </Card>
+      <Card
+        style={{
+          textAlign: "center",
+          fontSize: 24,
+          marginBottom: 20,
+          boxShadow: "0 0 30px #CCD2FF"
+        }}>
+        <div style={{ marginBottom: 30, fontSize: 30, fontWeight: 600 }}>
+          Медиа отдел
+        </div>
+        <Row gutter={[24, 24]} style={{ backgroundColor: "white" }}>
+          {contacts[1]?.media?.map((a: any) => (
+            <TeamCol
+              key={a.name}
+              xxl={6}
+              xl={8}
+              lg={12}
+              md={12}
+              sm={24}
+              xs={24}>
+              <img
+                src={a.photo}
+                width={260}
+                height={260}
+                data-proportion-h="1"
+              />
+              <Title
+                style={{ textAlign: "center", cursor: "pointer" }}
+                level={3}>
+                {a.name}
+              </Title>
+              <h3>{a.job}</h3>
+            </TeamCol>
+          ))}
+        </Row>
+      </Card>
+      <Card
+        style={{
+          textAlign: "center",
+          fontSize: 24,
+          marginBottom: 20,
+          boxShadow: "0 0 30px #CCD2FF"
+        }}>
+        <div style={{ marginBottom: 30, fontSize: 30, fontWeight: 600 }}>
+          Тех отдел
+        </div>
+        <Row gutter={[24, 24]} style={{ backgroundColor: "white" }}>
+          {contacts[0]?.tech?.map((a: any) => (
+            <TeamCol
+              key={a.name}
+              xxl={6}
+              xl={8}
+              lg={12}
+              md={12}
+              sm={24}
+              xs={24}>
+              <img
+                src={a.photo}
+                width={260}
+                height={260}
+                data-proportion-h="1"
+              />
+              <Title
+                style={{ textAlign: "center", cursor: "pointer" }}
+                level={3}>
+                {a.name}
+              </Title>
+              <h3>{a.job}</h3>
+            </TeamCol>
+          ))}
+        </Row>
+      </Card>
+      <Card
+        style={{
+          textAlign: "center",
+          fontSize: 24,
+          marginBottom: 20,
+          boxShadow: "0 0 30px #CCD2FF"
+        }}>
+        <div style={{ marginBottom: 30, fontSize: 30, fontWeight: 600 }}>
+          Судьи
+        </div>
+        <Row gutter={[24, 24]} style={{ backgroundColor: "white" }}>
+          {contacts[2]?.judges?.map((a: any) => (
+            <TeamCol
+              key={a.name}
+              xxl={6}
+              xl={8}
+              lg={12}
+              md={12}
+              sm={24}
+              xs={24}>
+              <img
+                src={a.photo}
+                width={260}
+                height={260}
+                data-proportion-h="1"
+              />
+              <Title
+                style={{ textAlign: "center", cursor: "pointer" }}
+                level={3}>
+                {a.name}
+              </Title>
+              <h3>{a.job}</h3>
             </TeamCol>
           ))}
         </Row>

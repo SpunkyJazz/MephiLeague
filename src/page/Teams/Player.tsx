@@ -10,9 +10,7 @@ export const Players = ({ data, unselectPlayer }: PProps): JSX.Element => {
     return (
       <div className="card">
         <div className="front">
-          {player && (
-            <img src={player?.photo[0].url} width={300} height={300} />
-          )}
+          {player && <img src={player?.photo} width={300} height={300} />}
           <Title level={4} style={{ textAlign: "center" }}>
             {[player.surname, " ", player.name, " ", player.lastname]}
           </Title>

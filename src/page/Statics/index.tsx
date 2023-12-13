@@ -32,7 +32,12 @@ export const StaticsPage = (): JSX.Element => {
   return (
     <Row gutter={[24, 24]}>
       <TableCol xxl={12} xl={24} lg={24} md={24} sm={24} xs={24}>
-        <Card style={{ textAlign: "center", fontSize: 24 }}>
+        <Card
+          style={{
+            textAlign: "center",
+            fontSize: 24,
+            boxShadow: "0 0 30px #CCD2FF"
+          }}>
           Бомбардиры
           <Table
             columns={COLUMNS_GOALS}
@@ -50,7 +55,12 @@ export const StaticsPage = (): JSX.Element => {
         </Card>
       </TableCol>
       <TableCol xxl={12} xl={24} lg={24} md={24} sm={24} xs={24}>
-        <Card style={{ textAlign: "center", fontSize: 24 }}>
+        <Card
+          style={{
+            textAlign: "center",
+            fontSize: 24,
+            boxShadow: "0 0 30px #CCD2FF"
+          }}>
           Ассистенты
           <Table
             columns={COLUMNS_ASSISTS}

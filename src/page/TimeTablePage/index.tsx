@@ -31,17 +31,18 @@ export const TimeTablePage = (): JSX.Element => {
           key: index.id,
           children: (
             <Table
+              style={{ boxShadow: "0 0 30px #CCD2FF" }}
               columns={COLUMNS_TIME_TABLE}
               dataSource={index?.res.map((p: any) => ({
                 date: [p.match_date],
                 teams: [
-                  <img src={p.first_logo} />,
+                  <img src={p.first_logo} style={{ width: 50 }} />,
                   "   ",
                   p.first_team,
                   "-",
                   p.second_team,
                   "   ",
-                  <img src={p.second_logo} />
+                  <img src={p.second_logo} style={{ width: 50 }} />
                 ],
                 score: [p.goal_first, ":", p.goal_second]
               }))}

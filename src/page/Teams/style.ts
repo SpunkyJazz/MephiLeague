@@ -12,7 +12,7 @@ export const TeamCol = styled(Col)`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  gap: 15px;
+  /* gap: 5px; */
 `;
 
 export const PlayersCol = styled(Col)`
