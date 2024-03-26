@@ -309,3 +309,54 @@ export const TEAM_TIME_TABLE: any = [
     align: "center"
   }
 ];
+
+export const MATCH: any = [
+  {
+    title: "Команда",
+    dataIndex: "team",
+    key: "team",
+    align: "center"
+  },
+  {
+    title: "Владение (1 тайм)",
+    dataIndex: "possession1",
+    key: "possession1",
+    align: "center",
+  },
+  {
+    title: "Владение (2 тайм)",
+    dataIndex: "possession2",
+    key: "possession2",
+    align: "center"
+  },
+  {
+    title: "Удары",
+    dataIndex: "shots",
+    key: "shots",
+    align: "center"
+  },
+  {
+    title: "Удары в створ",
+    dataIndex: "shots_on_target",
+    key: "shots_on_target",
+    align: "center"
+  },
+  {
+    title: "Удары мимо",
+    dataIndex: "shots_wide",
+    key: "shots_wide",
+    align: "center"
+  },
+  {
+    title: "Угловые",
+    dataIndex: "corners",
+    key: "corners",
+    align: "center"
+  },
+  {
+    title: "Фолы",
+    dataIndex: "fouls",
+    key: "fouls",
+    align: "center"
+  }
+];

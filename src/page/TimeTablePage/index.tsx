@@ -1,5 +1,7 @@
-import { Table, Tabs, message } from "antd";
+import { Table, Tabs, message, Button, Row } from "antd";
 import { useEffect, useState } from "react";
+import { TSelectedMatch } from "./types";
+import { Match } from "./match";
 import { MephiLeagueApi } from "src/api/mephi-league";
 import { COLUMNS_TIME_TABLE } from "src/constants";
 
@@ -21,7 +23,19 @@ export const TimeTablePage = (): JSX.Element => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  return (
+  const [selectedMatch, setSelectedMatch] = useState<TSelectedMatch | undefined>();
+
+  const handleSelectMatch = (data: any): void => {
+    setSelectedMatch(data);
+  };
+
+  const handleUnselectMatch = (): void => {
+    setSelectedMatch(undefined);
+  };
+
+  return selectedMatch ? (
+    <Match data={selectedMatch} unselectTeam={handleUnselectMatch} />
+  ) : (
     <Tabs
       onChange={onChange}
       type="card"
@@ -42,9 +56,10 @@ export const TimeTablePage = (): JSX.Element => {
                   "-",
                   p.second_team,
                   "   ",
-                  <img src={p.second_logo} style={{ width: 50 }} />
+                  <img src={p.second_logo} style={{ width: 50 }} />, <br/>, <br/>,
+                  <Button onClick={() => handleSelectMatch(p)}>Статистика матча</Button>
                 ],
-                score: [p.goal_first, ":", p.goal_second]
+                score: [p.goal_first, ":", p.goal_second],
               }))}
               size="small"
               pagination={false}

@@ -187,11 +187,11 @@ export const TeamsPage = (): JSX.Element => {
                   style={{ textAlign: "center", marginTop: 50, width: 110 }}>
                   {mainPage?.match?.first_team}
                 </Title>
-                <img
+                {/* <img
                   style={{ marginTop: 50, textAlign: "center" }}
                   width={30}
                   src={VS}
-                />
+                /> */}
                 <Title
                   level={4}
                   style={{ textAlign: "center", marginTop: 50, width: 110 }}>

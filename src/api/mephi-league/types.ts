@@ -45,6 +45,20 @@ type games = {
   goal_first: number;
   goal_second: number;
   tour_number: number;
+  possession1_first: number,
+  possession1_second: number,
+  possession2_first: number,
+  possession2_second: number,
+  shots_first: number,
+  shots_second: number,
+  shots_on_target_first: number,
+  shots_on_target_second: number,
+  shots_wide_first: number,
+  shots_wide_second: number,
+  corners_first: number,
+  corners_second: number,
+  fouls_first: number,
+  fouls_second: number
 };
 
 export type TGoals = {

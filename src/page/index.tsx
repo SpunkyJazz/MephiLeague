@@ -12,11 +12,12 @@ import { MediaPage } from "./Media";
 import { HistoryPage } from "./History";
 import { ContactsPage } from "./Contacts";
 import { clientRoutes } from "src/routes/client";
+import { SiderStyled } from "./style"
 import { MENU_ITEMS } from "src/constants";
 import "src/styles/index.css";
 
 export const Page = observer((): JSX.Element => {
-  const { Content, Header, Sider } = Layout;
+  const { Content, Sider } = Layout;
 
   const navigate = useNavigate();
 
@@ -24,11 +25,11 @@ export const Page = observer((): JSX.Element => {
 
   return (
     <Layout style={{ height: "100vh" }}>
-      <Sider
+      <SiderStyled
         width={250}
         breakpoint="lg"
         collapsedWidth="0"
-        style={{backgroundColor: "#1A3262"}}
+        style={{backgroundColor: "#1A3262" }}
         onBreakpoint={(broken) => {
           console.log(broken);
         }}
@@ -50,16 +51,13 @@ export const Page = observer((): JSX.Element => {
           style={{
             fontSize: 18,
             fontWeight: 600,
+            height: "100%",
             backgroundColor: "#1A3262",
             color: "white"
           }}
         />
         <Space
           style={{
-            // justifyContent: "center",
-            // background: "white",
-            // overflowX: "auto"
-            paddingTop: 600,
             paddingLeft: 71
           }}>
           <Row style={{ alignItems: "center" }}>
@@ -79,7 +77,7 @@ export const Page = observer((): JSX.Element => {
             </Space>
           </Row>
         </Space> 
-      </Sider>
+      </SiderStyled>
       <Layout>
         {/* <Header
           style={{
