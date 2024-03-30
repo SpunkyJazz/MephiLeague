@@ -1,7 +1,6 @@
-import { Button, Card, Row, Table, Typography, Col, List, message, Space } from "antd";
+import { Button, Row, Table, Typography, Col, Space } from "antd";
 import { useEffect, useState } from "react";
 import { MATCH } from "src/constants";
-import { MephiLeagueApi } from "src/api/mephi-league";
 
 export const Match = ({ data, unselectMatch }: any): JSX.Element => {
   const { Title } = Typography;
@@ -18,16 +17,6 @@ export const Match = ({ data, unselectMatch }: any): JSX.Element => {
         </Space>
         <img src={data.second_logo} style={{ width: 300 }} />
       </Row>
-      {/* <Space style={{alignItems: "center", justifyContent: "space-between"}}>
-        {data.first_team} {"Команда"} {data.second_team} <br />
-        {data.first_team} {"Владение (1 тайм)"} {data.second_team} <br />
-        {data.first_team} {"Владение (2 тайм)"} {data.second_team} <br/>
-        {data.first_team} {"Удары"} {data.second_team} <br/>
-        {data.first_team} {"Удары в створ"} {data.second_team} <br/>
-        {data.first_team} {"Удары мимо"} {data.second_team} <br/>
-        {data.first_team} {"Угловые"} {data.second_team} <br/>
-        {data.first_team} {"Фолы"} {data.second_team} <br/>
-      </Space> */}
       <Title level={1} style={{textAlign: "center", margin: 30}}> Статистика </Title>
       <Table
         columns={MATCH}

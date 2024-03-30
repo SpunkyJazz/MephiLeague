@@ -34,7 +34,7 @@ export const TimeTablePage = (): JSX.Element => {
   };
 
   return selectedMatch ? (
-    <Match data={selectedMatch} unselectTeam={handleUnselectMatch} />
+    <Match data={selectedMatch} unselectMatch={handleUnselectMatch} />
   ) : (
     <Tabs
       onChange={onChange}

@@ -1,11 +1,10 @@
 import { PropsWithChildren, useEffect, useState } from "react";
-import { Card, Col, Row, Typography, message } from "antd";
+import { Card, Col, Row, Space, Typography, message } from "antd";
 import { TeamCol } from "./style";
 import { TSelectedTeam } from "./types";
 import { IBoopProps } from "./types";
 import { Team } from "./Team";
 import { MephiLeagueApi } from "src/api/mephi-league";
-import VS from "/Users/spunkyjazz/Desktop/work/Projects/MephiLeague/src/assets/VS.png";
 
 export const TeamsPage = (): JSX.Element => {
   const { Title } = Typography;
@@ -187,11 +186,9 @@ export const TeamsPage = (): JSX.Element => {
                   style={{ textAlign: "center", marginTop: 50, width: 110 }}>
                   {mainPage?.match?.first_team}
                 </Title>
-                {/* <img
-                  style={{ marginTop: 50, textAlign: "center" }}
-                  width={30}
-                  src={VS}
-                /> */}
+                <Space style={{alignContent: "center", fontSize: 30, fontWeight: 600}}>
+                  :
+                </Space>
                 <Title
                   level={4}
                   style={{ textAlign: "center", marginTop: 50, width: 110 }}>
