@@ -81,7 +81,7 @@ export const HistoryPage = (): JSX.Element => {
           key: k.name_of_tournament,
           children: (
             <>
-              <Col
+              {/* <Col
                 xxl={24}
                 xl={24}
                 lg={24}
@@ -94,7 +94,7 @@ export const HistoryPage = (): JSX.Element => {
                   width="100%"
                   height={900}
                   allow="accelerometer; autoplay; clipboard-write; gyroscope; picture-in-picture; web-share"></iframe>
-              </Col>
+              </Col> */}
               <Col span={24} style={{ marginBottom: 20 }}>
                 <Card
                   style={{
@@ -115,8 +115,6 @@ export const HistoryPage = (): JSX.Element => {
                         src={p?.logo}
                         width={70}
                         height={70}
-                        onClick={() => handleSelectTeam(p)}
-                        style={{ cursor: "pointer" }}
                       />
                     ),
                     team: p.team_name,

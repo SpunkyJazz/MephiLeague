@@ -109,23 +109,24 @@ export const TeamsPage = (): JSX.Element => {
                 height={220}
                 style={{ borderRadius: 150, marginBottom: 20 }}
               />
-              <Title
-                level={3}
-                style={{ textAlign: "center", marginBottom: 20 }}>
-                {mainPage?.best_goal?.surname + " " + mainPage?.best_goal?.name}
-              </Title>
+              <Title level={5}>ГОЛЫ</Title>
               <div
                 style={{
                   margin: "0 auto",
                   fontSize: 30,
                   fontWeight: 600,
-                  backgroundColor: "green",
+                  backgroundColor: "#5e8ff0",
                   border: "4px solid black",
                   borderRadius: 160,
                   width: 60
                 }}>
                 {mainPage?.best_goal?.number_of_goals}
               </div>
+              <Title
+                level={3}
+                style={{ textAlign: "center", marginTop: 20 }}>
+                {mainPage?.best_goal?.surname + " " + mainPage?.best_goal?.name}
+              </Title>
             </Col>
           </Card>
         </Col>
@@ -144,25 +145,26 @@ export const TeamsPage = (): JSX.Element => {
                 height={220}
                 style={{ borderRadius: 150, marginBottom: 20 }}
               />
-              <Title
-                level={3}
-                style={{ textAlign: "center", marginBottom: 20 }}>
-                {mainPage?.best_assists?.surname +
-                  " " +
-                  mainPage?.best_assists?.name}
-              </Title>
+              <Title level={5}>ПЕРЕДАЧИ</Title>
               <div
                 style={{
                   margin: "0 auto",
                   fontSize: 30,
                   fontWeight: 600,
-                  backgroundColor: "green",
+                  backgroundColor: "#5e8ff0",
                   border: "4px solid black",
                   borderRadius: 160,
                   width: 60
                 }}>
                 {mainPage?.best_assists?.number_of_assists}
               </div>
+              <Title
+                level={3}
+                style={{ textAlign: "center", marginTop: 20 }}>
+                {mainPage?.best_assists?.surname +
+                  " " +
+                  mainPage?.best_assists?.name}
+              </Title>
             </Col>
           </Card>
         </Col>
@@ -176,29 +178,33 @@ export const TeamsPage = (): JSX.Element => {
             Ближайший матч
             <Col>
               <Row justify="space-between">
-                <img
-                  style={{ marginTop: 50 }}
-                  width={90}
-                  src={mainPage?.match?.first_logo}
-                />
-                <Title
-                  level={4}
-                  style={{ textAlign: "center", marginTop: 50, width: 110 }}>
-                  {mainPage?.match?.first_team}
-                </Title>
+                <Col>
+                  <img
+                    style={{ marginTop: 65 }}
+                    width={90}
+                    src={mainPage?.match?.first_logo}
+                  />
+                  <Title
+                    level={4}
+                    style={{ textAlign: "center", marginTop: 25, width: 110 }}>
+                    {mainPage?.match?.first_team}
+                  </Title>
+                </Col>
                 <Space style={{alignContent: "center", fontSize: 30, fontWeight: 600}}>
                   :
                 </Space>
-                <Title
-                  level={4}
-                  style={{ textAlign: "center", marginTop: 50, width: 110 }}>
-                  {mainPage?.match?.second_team}
-                </Title>
-                <img
-                  style={{ marginTop: 50 }}
-                  width={90}
-                  src={mainPage?.match?.second_logo}
-                />
+                <Col>
+                  <img
+                    style={{ marginTop: 65 }}
+                    width={90}
+                    src={mainPage?.match?.second_logo}
+                  />
+                  <Title
+                    level={4}
+                    style={{ textAlign: "center", marginTop: 25, width: 110 }}>
+                    {mainPage?.match?.second_team}
+                  </Title>
+                </Col>
               </Row>
               <Title level={4} style={{ textAlign: "center", marginTop: 50 }}>
                 {mainPage?.match?.match_date}

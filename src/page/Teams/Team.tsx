@@ -16,6 +16,9 @@ import { TPlayer } from "src/api/mephi-league/types";
 export const Team = ({ data, unselectTeam }: any): JSX.Element => {
   const { Title } = Typography;
 
+  const dateStr1 = '01.01.2024';
+  const date1 = new Date(dateStr1);
+
   const [isLoading, setIsLoading] = useState(true);
 
   const [team, setTeam] = useState<any>();
@@ -67,7 +70,7 @@ export const Team = ({ data, unselectTeam }: any): JSX.Element => {
           <Button onClick={unselectTeam}>Назад</Button>
           <Button
             icon={<TwitterOutlined rev={undefined} />}
-            href={team?.VKgroup}
+            href={team?.vk}
             style={{ width: 72 }}
             target="_blank"
           />
@@ -97,15 +100,6 @@ export const Team = ({ data, unselectTeam }: any): JSX.Element => {
             </Title>
             <Title level={4}> Капитан: </Title>
             {team?.captain}
-            <Title level={4}>
-              Предыдущие заслуги:
-              <List
-                size="small"
-                bordered
-                dataSource={listData}
-                renderItem={(item) => <List.Item>{item}</List.Item>}
-              />
-            </Title>
           </Col>
         </Row>
         <Box>
@@ -189,7 +183,7 @@ export const Team = ({ data, unselectTeam }: any): JSX.Element => {
             columns={TEAM_TIME_TABLE}
             dataSource={team?.schedule.map((p: any) => ({
               tour: p.tour_number,
-              date: [p.match_date],
+              date: new Date(p.match_date).getTime() === date1.getTime() ? null : p.match_date,
               teams: [p.first_team, "-", p.second_team],
               score: [p.goal_first, ":", p.goal_second]
             }))}

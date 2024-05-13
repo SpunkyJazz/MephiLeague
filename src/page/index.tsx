@@ -114,7 +114,7 @@ export const Page = observer((): JSX.Element => {
             <Route path={clientRoutes.timetable} element={<TimeTablePage />} />
             <Route path={clientRoutes.standings} element={<StandingsPage />} />
             <Route path={clientRoutes.statics} element={<StaticsPage />} />
-            <Route path={clientRoutes.media} element={<MediaPage />} />
+            {/* <Route path={clientRoutes.media} element={<MediaPage />} /> */}
             <Route path={clientRoutes.history} element={<HistoryPage />} />
             <Route path={clientRoutes.contacts} element={<ContactsPage />} />
           </Routes>

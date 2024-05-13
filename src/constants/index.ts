@@ -31,11 +31,11 @@ export const MENU_ITEMS = [
     icon: createElement(SolutionOutlined),
     label: "Статистика"
   },
-  {
-    key: clientRoutes.media,
-    icon: createElement(FileImageOutlined),
-    label: "Галерея"
-  },
+  // {
+  //   key: clientRoutes.media,
+  //   icon: createElement(FileImageOutlined),
+  //   label: "Галерея"
+  // },
   {
     key: clientRoutes.history,
     icon: createElement(HistoryOutlined),

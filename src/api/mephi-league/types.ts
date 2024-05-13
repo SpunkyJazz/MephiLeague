@@ -17,7 +17,7 @@ export type TPlayer = {
 export type TTeam = {
   team_name: string;
   logo: string;
-  VK: string;
+  vk: string;
   captain: string;
   gallery: string[];
   players: TPlayer[];

@@ -4,7 +4,7 @@ export const clientRoutes = {
   timetable: "/timetable",
   standings: "/standings",
   statics: "/statics",
-  media: "/media",
+  // media: "/media",
   history: "/history",
   contacts: "/contacts"
 };

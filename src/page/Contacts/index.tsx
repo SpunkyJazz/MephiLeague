@@ -23,7 +23,7 @@ export const ContactsPage = (): JSX.Element => {
     <>
       <YMaps>
         <Card style={{ textAlign: "center", fontSize: 30, fontWeight: 600 }}>
-          Стадион "Koshka Stadium"
+          Стадион "Koshkino Stadium"
         </Card>
         <Map
           defaultState={{

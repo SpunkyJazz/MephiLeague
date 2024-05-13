@@ -10,6 +10,9 @@ export const TimeTablePage = (): JSX.Element => {
     console.log(key);
   };
 
+  const dateStr1 = '01.01.2024';
+  const date1 = new Date(dateStr1);
+
   const [isLoading, setIsLoading] = useState(true);
 
   const [timeTable, setTimeTable] = useState<any>([]);
@@ -48,14 +51,14 @@ export const TimeTablePage = (): JSX.Element => {
               style={{ boxShadow: "0 0 30px #CCD2FF" }}
               columns={COLUMNS_TIME_TABLE}
               dataSource={index?.res.map((p: any) => ({
-                date: [p.match_date],
+                date: new Date(p.match_date).getTime() === date1.getTime() ? null : p.match_date,
                 teams: [
-                  <img src={p.first_logo} style={{ width: 50 }} />,
-                  "   ",
+                  <img src={p.first_logo} style={{ width: 45 }} />,
+                  "  ",
                   p.first_team,
                   "-",
                   p.second_team,
-                  "   ",
+                  "  ",
                   <img src={p.second_logo} style={{ width: 50 }} />, <br/>, <br/>,
                   <Button onClick={() => handleSelectMatch(p)}>Статистика матча</Button>
                 ],

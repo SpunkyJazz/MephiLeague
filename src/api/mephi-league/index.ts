@@ -11,31 +11,31 @@ import {
 
 export class MephiLeagueApiClass extends ApiCommon {
   public getPlayer = <T = TPlayer>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetPlayers`);
+    this.get<T>(`/api/GetPlayers`);
 
   public getTeam = <T = TTeam>(id: string): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetTeam/${id}`);
+    this.get<T>(`/api/GetTeam/${id}`);
 
   public getTeams = <T = TTeam[]>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetTeams`);
+    this.get<T>(`/api/GetTeams`);
 
   public getGoals = <T = TPlayer[]>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetGoals`);
+    this.get<T>(`/api/GetGoals`);
 
   public getAssists = <T = TPlayer[]>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetAssists`);
+    this.get<T>(`/api/GetAssists`);
 
   public getTimeTable = <T = TTimeTable[]>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetSchedule`);
+    this.get<T>(`/api/GetSchedule`);
 
   public getHistory = <T = THistory[]>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetHistory`);
+    this.get<T>(`/api/GetHistory`);
 
   public getAdmins = <T = TAdmins[]>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetAdmins`);
+    this.get<T>(`/api/GetAdmins`);
 
   public getMainPage = <T = TMainPage>(): TResponse<T> =>
-    this.get<T>(`http://192.168.31.116:5005/GetMain`);
+    this.get<T>(`/api/GetMain`);
 }
 
 export const MephiLeagueApi = new MephiLeagueApiClass();
